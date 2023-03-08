@@ -1,0 +1,112 @@
+table {
+  border: 2px solid black;
+  margin: 0 auto;
+  margin-top: 50px;
+  background-color: azure;
+}
+.form-switch.form-switch-xl .form-check-input {
+  height: 2.5rem;
+  width: calc(4rem + 0.75rem);
+  border-radius: 5rem;
+  display: block;
+}
+.form-check-label {
+  font-weight: bold;
+  background-color: azure;
+  border: 2px solid navy;
+  width: 200px;
+  border-radius: 10px;
+  color: navy;
+  margin-left: -16%;
+  text-align: center;
+}
+.mode {
+  margin-left: 46.7%;
+}
+td {
+  width: 80px;
+  height: 80px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 60px;
+  font-weight: bold;
+  border: 2px solid black;
+  cursor: pointer;
+}
+.cell {
+  border: 2px solid black;
+}
+
+.X {
+  content: "X";
+  background-color: blue;
+}
+.O {
+  content: "O";
+  background-color: red;
+}
+.btn-success {
+  text-align: center;
+  vertical-align: middle;
+  margin-left: 46.7%;
+  margin-top: 30px;
+  position: relative;
+  margin-bottom: 20%;
+}
+.winner {
+  cursor: pointer;
+  background-color: green;
+}
+.blinking {
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.wraper {
+  width: 700px;
+  height: 100px;
+  margin: auto;
+  border: 2px solid navy;
+  border-radius: 10px;
+  overflow-x: hidden;
+  background-color: azure;
+  margin-top: 2px;
+}
+
+.heading {
+  font-weight: bold;
+  margin-top: 3%;
+  color: navy;
+  animation-name: rightToLeft;
+  animation-duration: 10s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+@keyframes rightToLeft {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+.two-playes-body {
+  background: #222222;
+  overflow-x: hidden;
+  background-image: url(./imges/backgroung.jpeg);
+}
+.pc-body {
+  background: #222222;
+  overflow-x: hidden;
+  background-image: url(./imges/image-vs-pc.jpeg);
+}
