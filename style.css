@@ -1,7 +1,7 @@
 table {
   border: 2px solid black;
   margin: 0 auto;
-  margin-top: 50px;
+  margin-top: 10px;
   background-color: azure;
 }
 .form-switch.form-switch-xl .form-check-input {
@@ -9,6 +9,7 @@ table {
   width: calc(4rem + 0.75rem);
   border-radius: 5rem;
   display: block;
+  margin-left: 20%;
 }
 .form-check-label {
   font-weight: bold;
@@ -17,11 +18,8 @@ table {
   width: 200px;
   border-radius: 10px;
   color: navy;
-  margin-left: -16%;
+  margin-left: -10%;
   text-align: center;
-}
-.mode {
-  margin-left: 46.7%;
 }
 td {
   width: 80px;
@@ -48,10 +46,10 @@ td {
 .btn-success {
   text-align: center;
   vertical-align: middle;
-  margin-left: 46.7%;
+  margin-left: 50%;
+  margin-right: 50%;
   margin-top: 30px;
   position: relative;
-  margin-bottom: 20%;
 }
 .winner {
   cursor: pointer;
@@ -59,6 +57,13 @@ td {
 }
 .blinking {
   animation: blink 1s infinite;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  zoom:125%
 }
 
 @keyframes blink {
@@ -103,10 +108,10 @@ td {
 .two-playes-body {
   background: #222222;
   overflow-x: hidden;
-  background-image: url(./backgroung.jpeg);
+  background-image: url(./imges/backgroung.jpeg);
 }
 .pc-body {
   background: #222222;
   overflow-x: hidden;
-  background-image: url(./image-vs-pc.jpeg);
+  background-image: url(./imges/image-vs-pc.jpeg);
 }

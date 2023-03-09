@@ -4,11 +4,16 @@ let board = [
   ["", "", ""],
   ["", "", ""],
 ];
+let winnerSound = new Audio('./sounds/winner.mp3')
+let tapAudio = new Audio('./sounds/laser-gun.mp3')
+let switchAudio = new Audio('./sounds/switch.mp3')
 
 let modePc = false;
 
 $(document).ready(() => {
+  //reset bittom
   $(document).on("click", ".btn", (event) => {
+    
     $(".cell").removeClass("X O disabled winner blinking");
     $(".cell").text("");
     board = [
@@ -20,7 +25,9 @@ $(document).ready(() => {
     $(".heading").text("Welcome to the Tic-Tac-Toe game ");
   });
 
+  //mode changer
   $(document).on("click", "#flexSwitchCheck", (event) => {
+    switchAudio.play()
     $("body").toggleClass("pc-body two-playes-body");
     $(".form-check-label").text("Mode:1P");
     if ($("body").hasClass("pc-body")) {
@@ -31,7 +38,8 @@ $(document).ready(() => {
     }
   });
 
-  $("body").on("click", ".cell:not(.X):not(.O):not(.disabled)", (event) => {
+  $("body").on("click", ".cell:not(.X):not(.O):not(.disabled)", (event)=> {
+    tapAudio.play()
     $(event.target).addClass(turn);
     $(event.target).text(turn);
     let cell = $(event.target);
@@ -42,21 +50,28 @@ $(document).ready(() => {
     if (modePc) {
       if (checkForWin(turn)) {
         $(".heading").text(`${turn} is the winner!`);
+        winnerSound.play()
         $(".cell").addClass("disabled");
       } else if (board.flat().every((cell) => cell !== "")) {
         $(".heading").text("Tie game!");
       } else {
         turn = "O";
+        tapAudio.play()
         setTimeout(() => {
           let emptyCells = $(".cell:not(.X):not(.O):not(.disabled)");
           let randomIndex = Math.floor(Math.random() * emptyCells.length);
           let randomCell = emptyCells.eq(randomIndex);
+          tapAudio.play()
           randomCell.addClass("O");
           randomCell.text("O");
+          tapAudio.play()
           let row = randomCell.data("row");
           let col = randomCell.data("col");
           board[row][col] = "O";
+          tapAudio.play()
+          
           if (checkForWin("O")) {
+            winnerSound.play()
             $(".heading").text("Computer wins!");
             $(".cell").addClass("disabled");
           } else if (board.flat().every((cell) => cell !== "")) {
@@ -64,10 +79,12 @@ $(document).ready(() => {
           } else {
             turn = "X";
           }
-        }, 300);
+        }, 800);
+        
       }
     } else {
       if (checkForWin(turn)) {
+        winnerSound.play()
         $(".heading").text(`${turn} is the winner!`);
         $(".cell").addClass("disabled");
       } else if (board.flat().every((cell) => cell !== "")) {
@@ -77,6 +94,7 @@ $(document).ready(() => {
       }
     }
 
+    //function check for win
     function checkForWin(currentTurn) {
       for (let rows = 0; rows < 3; rows++) {
         if (
